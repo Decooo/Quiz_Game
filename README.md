@@ -1,5 +1,4 @@
 # Quiz_Game
-Quiz game in android
 
 REST API is in branch: quiz_rest_master
 
