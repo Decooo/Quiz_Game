@@ -20,7 +20,8 @@ public class Question {
 	@JoinColumn(name = "id_category", nullable = false)
 	private Category category;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_question")
 	private Set<Answer> answers = new HashSet<>();
 
 	public int getIdQuestion() {

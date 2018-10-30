@@ -22,6 +22,7 @@ public class Category {
 	private String name;
 
 	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_category")
 	private Set<Question> questions = new HashSet<>();
 
 	public int getIdCategory() {

@@ -1,24 +1,13 @@
-package com.jakub.quizgame.entity;
+package com.jakub.quizgame.dto;
 
-import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "answer")
-public class Answer {
+public class AnswerDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAnswer;
-
 	@Size(min = 1, max = 500)
 	private String content;
-
 	private Boolean correct;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_question", nullable = false)
-	private Question question;
 
 	public int getIdAnswer() {
 		return idAnswer;
@@ -42,13 +31,5 @@ public class Answer {
 
 	public void setCorrect(Boolean correct) {
 		this.correct = correct;
-	}
-
-	public Question getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(Question question) {
-		this.question = question;
 	}
 }
