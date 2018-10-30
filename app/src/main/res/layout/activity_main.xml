@@ -4,15 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jakub.milionerzy.MainActivity">
+    tools:context="com.example.jakub.milionerzy.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="210dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginTop="27dp"
+        android:text="QUIZ GAME"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnNewGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnNewGame"
+        android:layout_width="215dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="18dp"
+        android:text="Nowa gra"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/btnRanking"
+        android:layout_width="215dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:text="Ranking"
+        app:layout_constraintBottom_toTopOf="@+id/btnExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddQuestion" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="215dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="54dp"
+        android:text="Wyjście"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRanking" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="14dp"
+        android:text="Copyright 2018 © Jakub Kuśnierz"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExit" />
+
+    <Button
+        android:id="@+id/btnAddQuestion"
+        android:layout_width="215dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="18dp"
+        android:text="Dodaj pytanie"
+        app:layout_constraintBottom_toTopOf="@+id/btnRanking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewGame" />
 
 </android.support.constraint.ConstraintLayout>
