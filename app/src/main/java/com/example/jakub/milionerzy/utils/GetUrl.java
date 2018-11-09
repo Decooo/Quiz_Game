@@ -12,7 +12,7 @@ import java.net.URL;
  * Created by jakub on 30.10.2018.
  */
 
-public class GetUrlContentTask extends AsyncTask<String, Integer, String> {
+public class GetUrl extends AsyncTask<String, Integer, String> {
     @Override
     protected String doInBackground(String... urls) {
         StringBuilder content = new StringBuilder();

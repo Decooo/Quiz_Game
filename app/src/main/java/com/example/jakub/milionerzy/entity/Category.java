@@ -4,7 +4,7 @@ package com.example.jakub.milionerzy.entity;
  * Created by jakub on 30.10.2018.
  */
 
-public class CategoryEntity {
+public class Category {
 
     private int id;
     private String name;

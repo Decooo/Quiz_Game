@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.jakub.milionerzy.activity.CategoryActivity;
+import com.example.jakub.milionerzy.activity.QuestionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(view.getContext(), CategoryActivity.class);
                 startActivityForResult(myIntent, 0);
             }
+        });
 
+        Button addQuestion = (Button) findViewById(R.id.btnAddQuestion);
+        addQuestion.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), QuestionActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
         });
 
     }
