@@ -1,9 +1,12 @@
 package com.jakub.quizgame.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.validation.constraints.Size;
 
 public class AnswerDTO {
 
+	@JsonIgnore
 	private int idAnswer;
 	@Size(min = 1, max = 500)
 	private String content;
