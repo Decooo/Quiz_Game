@@ -17,10 +17,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.question.LAUNCHER" />
+                <category android:name="android.intent.ranking.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.CategoryActivity" />
         <activity android:name=".activity.QuestionActivity" />
+        <activity android:name=".activity.RankingActivity" />
     </application>
 
 </manifest>

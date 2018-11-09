@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.jakub.milionerzy.activity.CategoryActivity;
 import com.example.jakub.milionerzy.activity.QuestionActivity;
+import com.example.jakub.milionerzy.activity.RankingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
         addQuestion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), QuestionActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+        Button ranking = (Button) findViewById(R.id.btnRanking);
+        ranking.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), RankingActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });
