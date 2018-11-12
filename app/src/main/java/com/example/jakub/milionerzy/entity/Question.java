@@ -1,6 +1,6 @@
 package com.example.jakub.milionerzy.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
 
 /**
  * Created by jakub on 09.11.2018.
@@ -10,7 +10,7 @@ public class Question {
 
     private int idCategory;
     private String content;
-    private Set<Answer> answerSet;
+    private ArrayList<Answer> answerList;
 
     public int getIdCategory() {
         return idCategory;
@@ -28,11 +28,11 @@ public class Question {
         this.content = content;
     }
 
-    public Set<Answer> getAnswerSet() {
-        return answerSet;
+    public ArrayList<Answer> getAnswerList() {
+        return answerList;
     }
 
-    public void setAnswerSet(Set<Answer> answerSet) {
-        this.answerSet = answerSet;
+    public void setAnswerList(ArrayList<Answer> answerList) {
+        this.answerList = answerList;
     }
 }

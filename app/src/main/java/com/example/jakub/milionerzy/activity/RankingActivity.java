@@ -43,7 +43,6 @@ public class RankingActivity extends Activity {
                 doJsonResponse(response);
 
                 ListView listView = (ListView) findViewById(R.id.listViewRanking);
-                //listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, rankingsList));
                 listView.setAdapter(new RankingAdapter(this,rankings));
             }
         } catch (InterruptedException | ExecutionException | JSONException e) {

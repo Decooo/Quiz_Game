@@ -4,16 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="148dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="79dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="93dp"
         android:text="Wybierz kategorie:"
-        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spinnerCategories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,14 +27,41 @@
 
     <Spinner
         android:id="@+id/spinnerCategories"
-        android:layout_width="0dp"
+        android:layout_width="199dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="327dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginStart="43dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="62dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="146dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="132dp"
+        android:text="START"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategories" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="113dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:text="powrot"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
 </android.support.constraint.ConstraintLayout>

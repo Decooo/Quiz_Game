@@ -40,8 +40,8 @@ public class RankingAdapter extends ArrayAdapter<Ranking> {
         nameText.setText(values.get(position).getName());
         resultText.setText(String.valueOf(values.get(position).getResult()));
         if (position % 2 == 0) {
-            rowView.setBackgroundColor(Color.parseColor("#95a9fe"));
-        } else rowView.setBackgroundColor(Color.parseColor("#bff7fe"));
+            rowView.setBackgroundResource(R.color.colorRankingDark);
+        } else rowView.setBackgroundResource(R.color.colorRankingLight);
 
         return rowView;
     }

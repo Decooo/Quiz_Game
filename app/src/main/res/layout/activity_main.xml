@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.example.jakub.milionerzy.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -15,6 +16,7 @@
         android:layout_marginTop="27dp"
         android:text="QUIZ GAME"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/btnNewGame"
