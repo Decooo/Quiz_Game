@@ -22,7 +22,8 @@ public class RankingService {
 	public Collection<RankingDTO> getRanking() {
 		return rankingRepository.findAll().stream()
 				.map(r -> new ModelMapper().map(r, RankingDTO.class))
-				.sorted(Comparator.comparing(RankingDTO::getResult).reversed()	)
+				.sorted(Comparator.comparing(RankingDTO::getResult).reversed())
+				.limit(20)
 				.collect(Collectors.toList());
 	}
 }

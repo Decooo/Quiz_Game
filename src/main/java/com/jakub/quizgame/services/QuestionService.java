@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,5 +52,19 @@ public class QuestionService {
 		answerRepository.saveAll(answerList);
 
 		return new ModelMapper().map(questionRepository.findByIdQuestion(finalQuestion.getIdQuestion()).get(), QuestionDTO.class);
+	}
+
+	public Collection<QuestionDTO> getQuestionsByCategory(int idCategory) throws NotFoundException {
+		var category = categoryRepository.findByIdCategory(idCategory);
+		if (!category.isPresent()) {
+			throw new NotFoundException("Podana kategoria nie istnieje");
+		}
+
+		var questionList = questionRepository.findByCategory(category.get()).stream()
+				.map(q -> new ModelMapper().map(q, QuestionDTO.class))
+				.collect(Collectors.toList());
+
+		Collections.shuffle(questionList);
+		return questionList;
 	}
 }

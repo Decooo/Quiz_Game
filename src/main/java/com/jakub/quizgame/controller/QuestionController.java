@@ -25,6 +25,11 @@ public class QuestionController {
 		return new ResponseEntity<>(questionService.getQuestions(), HttpStatus.OK);
 	}
 
+	@GetMapping(value = "/getQuestion")
+	public ResponseEntity<Collection<QuestionDTO>> getQuestionsByCategory(int idCategory) throws NotFoundException {
+		return new ResponseEntity<>(questionService.getQuestionsByCategory(idCategory), HttpStatus.OK);
+	}
+
 	@PostMapping(value = "/post")
 	public ResponseEntity<QuestionDTO> addQuestion(@RequestBody QuestionDTO questionDTO) throws NotFoundException {
 		return new ResponseEntity<>(questionService.addQuestion(questionDTO),HttpStatus.CREATED);
