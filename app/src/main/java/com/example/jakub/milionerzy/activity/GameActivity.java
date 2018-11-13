@@ -228,7 +228,6 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (input.getText().toString().isEmpty()) {
-                    //input.setError("Nazwa nie może być pusta!");
                     Toast.makeText(getApplicationContext(), "Nazwa nie może być pusta!", Toast.LENGTH_SHORT).show();
                     gameOverDialog(result);
                 } else {
