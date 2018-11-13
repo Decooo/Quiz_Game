@@ -27,4 +27,9 @@ public class CategoryController {
 		return new ResponseEntity<>(categoryService.getCategories(), HttpStatus.OK);
 	}
 
+	@GetMapping("/getWithQuestions")
+	public ResponseEntity<Collection<CategoryDTO>> getCategoriesWithQuestions(){
+		return new ResponseEntity<>(categoryService.getCategoriesWithQuestions(), HttpStatus.OK);
+	}
+
 }

@@ -14,11 +14,9 @@ import java.util.stream.Collectors;
 public class RankingService {
 
 	private RankingRepository rankingRepository;
-
 	public RankingService(RankingRepository rankingRepository) {
 		this.rankingRepository = rankingRepository;
 	}
-
 
 	public Collection<RankingDTO> getRanking() {
 		return rankingRepository.findAll().stream()
