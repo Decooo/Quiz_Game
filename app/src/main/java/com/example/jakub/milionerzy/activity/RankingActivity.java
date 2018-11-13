@@ -76,6 +76,7 @@ public class RankingActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Brak wyników");
         builder.setMessage("Aktualnie nie ma żadnych wyników");
+        builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 RankingActivity.this.finish();

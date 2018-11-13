@@ -5,19 +5,24 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jakub.milionerzy.R;
 import com.example.jakub.milionerzy.entity.Answer;
 import com.example.jakub.milionerzy.entity.Question;
+import com.example.jakub.milionerzy.utils.PostUrl;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by jakub on 12.11.2018.
@@ -39,17 +44,23 @@ public class GameActivity extends Activity {
         int round = bundle.getInt("round");
         int result = bundle.getInt("result");
 
-        TextView resultText = (TextView) findViewById(R.id.textResult);
-        resultText.setText(String.valueOf(result));
+        if (round > questionsList.size()) {
+            gameOverDialog(result);
+            Toast.makeText(getApplicationContext(), "Nie ma więcej pytań!", Toast.LENGTH_SHORT).show();
+        } else {
+            TextView resultText = (TextView) findViewById(R.id.textResult);
+            String resultString = result + " pkt";
+            resultText.setText(resultString);
 
-        TextView roundText = (TextView) findViewById(R.id.textRound);
-        String roundString = "Runda " + round;
-        roundText.setText(roundString);
+            TextView roundText = (TextView) findViewById(R.id.textRound);
+            String roundString = "Runda " + round;
+            roundText.setText(roundString);
 
-        TextView content = (TextView) findViewById(R.id.textContent);
-        content.setText(questionsList.get(round - 1).getContent());
+            TextView content = (TextView) findViewById(R.id.textContent);
+            content.setText(questionsList.get(round - 1).getContent());
 
-        clickAnswer(round, result, questionJSON);
+            clickAnswer(round, result, questionJSON);
+        }
     }
 
     private void clickAnswer(final int round, final int result, final String questionJSON) {
@@ -66,7 +77,7 @@ public class GameActivity extends Activity {
                     }
                 } else {
                     answer1.setBackgroundResource(R.color.falseAnswer);
-                    falseAnswer();
+                    falseAnswer(result);
                 }
             }
         });
@@ -84,7 +95,7 @@ public class GameActivity extends Activity {
                     }
                 } else {
                     answer2.setBackgroundResource(R.color.falseAnswer);
-                    falseAnswer();
+                    falseAnswer(result);
                 }
             }
         });
@@ -102,7 +113,7 @@ public class GameActivity extends Activity {
                     }
                 } else {
                     answer3.setBackgroundResource(R.color.falseAnswer);
-                    falseAnswer();
+                    falseAnswer(result);
                 }
             }
         });
@@ -120,12 +131,10 @@ public class GameActivity extends Activity {
                     }
                 } else {
                     answer4.setBackgroundResource(R.color.falseAnswer);
-                    falseAnswer();
+                    falseAnswer(result);
                 }
             }
         });
-
-
     }
 
     private void trueAnswer(int round, int result, String questionJSON) throws InterruptedException {
@@ -139,12 +148,16 @@ public class GameActivity extends Activity {
         bundle.putInt("round", round);
         myIntent.putExtras(bundle);
         Thread.sleep(500);
+        finish();
         startActivity(myIntent);
     }
 
-    private void falseAnswer() {
-        getAlertDialog("Koniec gry","Koniec gry");
-
+    private void falseAnswer(int result) {
+        if (result == 0) {
+            getAlertDialog("Koniec gry", "Spróbuj ponownie!");
+        } else {
+            gameOverDialog(result);
+        }
     }
 
     private void getQuestions(String response) {
@@ -174,7 +187,6 @@ public class GameActivity extends Activity {
                     question.setAnswerList(answerList);
                     questionsList.add(question);
                 }
-
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -187,9 +199,10 @@ public class GameActivity extends Activity {
         }
     }
 
-    public void getAlertDialog(String title, String message) {
+    private void getAlertDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
+        builder.setCancelable(false);
         builder.setMessage(message);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -200,5 +213,46 @@ public class GameActivity extends Activity {
         alert.getWindow().setLayout(500, 600);
     }
 
+    private void gameOverDialog(final int result) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Koniec gry! Zdobyłeś " + result + " punktów.");
 
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        input.setPadding(25, 75, 25, 25);
+        input.setHint("Wpisz swoja nazwe");
+        builder.setView(input);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Zapisz wynik", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (input.getText().toString().isEmpty()) {
+                    //input.setError("Nazwa nie może być pusta!");
+                    Toast.makeText(getApplicationContext(), "Nazwa nie może być pusta!", Toast.LENGTH_SHORT).show();
+                    gameOverDialog(result);
+                } else {
+                    JSONObject json = new JSONObject();
+                    try {
+                        json.put("name", input.getText());
+                        json.put("result", result);
+                        String response = new PostUrl().execute("http://10.0.2.2:8080/ranking/post", String.valueOf(json)).get();
+                        if (!response.equalsIgnoreCase("201")) {
+                            getAlertDialog("Błąd", "Wystąpił błąd, zapisanie wyniku nie powiodło się.");
+                        } else {
+                            GameActivity.this.finish();
+                            Toast.makeText(getApplicationContext(), "Zapisano wynik!", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException | ExecutionException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

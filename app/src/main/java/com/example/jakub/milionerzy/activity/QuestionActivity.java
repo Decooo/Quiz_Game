@@ -179,6 +179,7 @@ public class QuestionActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Brak kategorii");
         builder.setMessage("Nie dodatno aktualnie żadnych kategorii");
+        builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 QuestionActivity.this.finish();
@@ -192,6 +193,7 @@ public class QuestionActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Błąd");
         builder.setMessage("Dodawanie pytania nie powiodło się!");
+        builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 QuestionActivity.this.finish();
@@ -205,6 +207,7 @@ public class QuestionActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sukces!");
         builder.setMessage("Pomyśnie dodawano nowe pytanie!");
+        builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 QuestionActivity.this.finish();
