@@ -1,3 +1,6 @@
+**REST API is in branch: quiz_rest_master	
+**Android app is in branch: quiz_apk_master
+
 # Quiz Game
 
 **Opiekun projektu:** mgr inż. Marcin Chyła
@@ -33,33 +36,33 @@ W grze dostępny jest ranking, do którego zostają zapisane wszystkie wyniki os
 
 4. **Ekrany aplikacji wraz z opisem funkcjonalności**
 
-1. **Menu główne**
+a) **Menu główne**
 
 ![image alt text](https://user-images.githubusercontent.com/25456823/49167001-cdb76f80-f334-11e8-9f33-3278360000fe.png)
 
 W menu głównym aplikacji znajdują się przyciski pozwalające rozpocząć nową grę, dodać pytanie do bazy, wyświetlić aktualny ranking z najlepszymi wynikami oraz zamknąć naszą aplikację. Jest to ekran startowy naszej aplikacji, który otwiera się po uruchomieniu aplikacji.
 
-2. **Wybór kategorii quizu**
+b) **Wybór kategorii quizu**
 
-![image alt text](image_2.png)
+![image_2](https://user-images.githubusercontent.com/25456823/49167373-8a113580-f335-11e8-842f-ec32c99126ce.png)
 
 Ekran ten pojawi się na ekranie telefonu po kliknięciu 
 w przycisk „Nowa gra" w menu głównym gry. Dokonujemy na nim wyboru kategorii z listy wszystkich które posiadają minimalną ilość pytań aby quiz był możliwy do wykonania. Po wyborze kategorii możemy rozpocząć nową grę klikając w przycisk „START”. Ekran umożliwia również możliwość powrotu do menu głównego przez kliknięcie przycisku „Powrót”. 
 
-3. **Rozgrywka**
+c) **Rozgrywka**
 
 Ekran po lewej stronie  ukazuję przykładowe pytanie podczas rozgrywki. W górnej części ukazana jest informacja o aktualnej rundzie oraz sumie zgromadzonych do tej pory punktów. Poniżej znajduję się wylosowane pytanie a następnie 4 przyciski z wariantami odpowiedzi 
 z których zawsze tylko jedna jest poprawna. Po wybraniu poprawnej odpowiedzi gracz przechodzi do następnej rundy. Natomiast po udzieleniu błędnej odpowiedzi proszony jest o podanie swojej nazwy (ekran po prawej stronie) w celu zapisania wyniku do rankingu. Jeżeli odpowiedź jest prawidłowa przycisk zmienia swój kolor na zielony, jeżeli błędna – na czerwony. 
 
-4. **Dodawanie pytania**
+d) **Dodawanie pytania**
 
-![image alt text](image_3.png)
+![image_3](https://user-images.githubusercontent.com/25456823/49167443-a614d700-f335-11e8-860c-0fe5d25ff696.png)
 
 Ekran ten ukazany zostaje po wybraniu opcji „Dodaj pytanie" w menu głównym aplikacji. Umożliwia on dodanie nowego pytania do bazy. Aby dokonać musimy wybrać kategorię do której przynależeć będzie pytanie, podać treść pytania, podać poprawną odpowiedź oraz podać trzy błędne odpowiedzi. Po wypełnieniu powyższych pól formularza całość należy potwierdzić klikając w przycisk „DODAJ”. Wszystkie pola formularza są walidowane przez aplikację co uniemożliwia wpisania niepoprawnych danych oraz wysłanie niepełnego formularza.
 
-5. **Ranking**
+e) **Ranking**
 
-![image alt text](image_4.png)
+![Ranking](https://user-images.githubusercontent.com/25456823/49167528-d5c3df00-f335-11e8-8dcc-0fbf5bb79ed4.png)
 
 Ekran ten ukazany zostaje po wybraniu opcji „Ranking" w menu głównym aplikacji. Ukazuję on 20 najlepszych wyników osiągniętych przez graczy podczas rozwiązywania quizów. W lewej kolumnie ukazane jest miejsce gracza w rankingu, w środkowej podana jest jego nazwa, natomiast w prawej kolumnie wynik który udało mu się osiągnąć.
 
@@ -87,18 +90,18 @@ Serwis restowy zawierający logikę aplikacji oraz odpowiadający za obsługę b
 
 7. **Przykładowe fragmenty kodu aplikacji**
 
-1. **Wyszukiwanie wszystkich pytań z danej kategorii**
+a) **Wyszukiwanie wszystkich pytań z danej kategorii**
 
 Powyższa metoda jest częścią serwisu restowego. Zwraca nam ona wszystkie pytania wraz z odpowiedziami z kategorii o id podanym jako parametr wyjściowy. Pytania te na końcu są mieszane metodą *shuffle* aby zostały wyświetlane w quizie w losowej kolejności.
 
-2. **Zapytanie ****_Get _****do serwisu restowego**
+b) **Zapytanie ****_Get _****do serwisu restowego**
 
 Powyższa metoda wykorzystywana jest to wykonywania zapytań typu *Get* do serwisu restowego naszej aplikacji. Wymaga ona otrzymania w parametrze dokładnego adresu URL do którego ma wysłać nasze zapytanie. W odpowiedzi zwraca zawartość w formacie JSON jeżeli kod odpowiedzi wynosił 200 lub sam kod odpowiedzi http jeżeli był on inny niż oczekiwany kod 200.
 
-3. **Lista najlepszych wyników**
+c) **Lista najlepszych wyników**
 
 Metoda ta również jest częścią serwisu restowego. Zwraca nam ona najlepsze 20 wyników graczy w kolejności od największego do najmniejszego. Wyniki te są wykorzystane do wyświetlania rankingu w grze.
 
-4. **Adapter layoutu rankingu**
+d) **Adapter layoutu rankingu**
 
 Powyższa metoda jest częścią klasy dzięki której tworzymy adapter layoutu. Adapter ten wykorzystany jest w naszej aplikacji do stworzenia rankingu najlepszych wyników w oparciu o fragmenty. W powyższej metodzie przypisane są odpowiednie wartości dla poszczególnych elementów widoku oraz kolor tła w zależności od tego czy element znajduję się na pozycji parzystej czy nieparzystej.
