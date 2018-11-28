@@ -66,7 +66,7 @@ e) **Ranking**
 
 Ekran ten ukazany zostaje po wybraniu opcji „Ranking" w menu głównym aplikacji. Ukazuję on 20 najlepszych wyników osiągniętych przez graczy podczas rozwiązywania quizów. W lewej kolumnie ukazane jest miejsce gracza w rankingu, w środkowej podana jest jego nazwa, natomiast w prawej kolumnie wynik który udało mu się osiągnąć.
 
-5. **Baza danych **
+5. **Baza danych**
 
 Baza danych została stworzona przy wykorzystaniu silnika  MySQL. Baza jest przetrzymywana w chmurze AWS Amazon dzięki czemu w grę można grać z kilku urządzeń jednocześnie posiadając dostęp do aktualnej bazy pytań oraz rankingu. Można także dodawać pytania które są od razu dostępne dla innych graczy.
 
@@ -94,7 +94,7 @@ a) **Wyszukiwanie wszystkich pytań z danej kategorii**
 
 Powyższa metoda jest częścią serwisu restowego. Zwraca nam ona wszystkie pytania wraz z odpowiedziami z kategorii o id podanym jako parametr wyjściowy. Pytania te na końcu są mieszane metodą *shuffle* aby zostały wyświetlane w quizie w losowej kolejności.
 
-b) **Zapytanie ****_Get _****do serwisu restowego**
+b) **Zapytanie** **_Get _** **do serwisu restowego**
 
 Powyższa metoda wykorzystywana jest to wykonywania zapytań typu *Get* do serwisu restowego naszej aplikacji. Wymaga ona otrzymania w parametrze dokładnego adresu URL do którego ma wysłać nasze zapytanie. W odpowiedzi zwraca zawartość w formacie JSON jeżeli kod odpowiedzi wynosił 200 lub sam kod odpowiedzi http jeżeli był on inny niż oczekiwany kod 200.
 
