@@ -1,14 +1,4 @@
-# Quiz_Game
-
-REST API is in branch: quiz_rest_master
-
-Android app is in branch: quiz_apk_master
-
-![image alt text](image_0.png)
-
-Programowanie aplikacji mobilnych
-
-*Quiz Game*
+# Quiz Game
 
 **Opiekun projektu:** mgr inż. Marcin Chyła
 
@@ -45,7 +35,7 @@ W grze dostępny jest ranking, do którego zostają zapisane wszystkie wyniki os
 
 1. **Menu główne**
 
-![image alt text](image_1.png)
+![image alt text](https://user-images.githubusercontent.com/25456823/49167001-cdb76f80-f334-11e8-9f33-3278360000fe.png)
 
 W menu głównym aplikacji znajdują się przyciski pozwalające rozpocząć nową grę, dodać pytanie do bazy, wyświetlić aktualny ranking z najlepszymi wynikami oraz zamknąć naszą aplikację. Jest to ekran startowy naszej aplikacji, który otwiera się po uruchomieniu aplikacji.
 
