@@ -4,9 +4,9 @@
 
 # Quiz Game
 
-**Opiekun projektu:** mgr inż. Marcin Chyła
-
 **Autor Projektu:** Jakub Kuśnierz
+
+**Opiekun projektu:** mgr inż. Marcin Chyła
 
 **Data wykonania:** Semestr zimowy rok akademicki 2018/2019
 
