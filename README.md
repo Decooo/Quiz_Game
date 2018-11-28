@@ -10,7 +10,7 @@
 
 **Data wykonania:** Semestr zimowy rok akademicki 2018/2019
 
-1. **Cel projektu**
+### 1. Cel projektu
 
 W ramach przedmiotu „Programowanie aplikacji mobilnych" wykonana została gra quizowa na urządzenia z systemem android oraz  serwis REST wykonany w technologii Java. Baza danych gry umieszczona została w serwisie Amazon AWS, dzięki czemu każdy gracz posiada taką samą pulę pytań. 
 
@@ -87,6 +87,7 @@ Baza danych składa się z 4 tabel które są wykorzystywane przez aplikacje do 
 - **ranking** – zawiera wyniki osiągane przez graczy wraz z ich nazwami
 
 **Schemat encji:**
+
 ![encje](https://user-images.githubusercontent.com/25456823/49168099-1839eb80-f337-11e8-9316-1a9d29961e6c.png)
 
 6. **Dokumentacja serwisu restowego**
