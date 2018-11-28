@@ -10,11 +10,11 @@ Programowanie aplikacji mobilnych
 
 *Quiz Game*
 
-**Opiekun projektu: ** mgr inż. Marcin Chyła
+**Opiekun projektu:** mgr inż. Marcin Chyła
 
 **Autor Projektu:** Jakub Kuśnierz
 
-**Data wykonania: ** Semestr zimowy rok akademicki 2018/2019
+**Data wykonania:** Semestr zimowy rok akademicki 2018/2019
 
 1. **Cel projektu**
 
