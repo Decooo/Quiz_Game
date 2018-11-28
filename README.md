@@ -52,6 +52,9 @@ w przycisk „Nowa gra" w menu głównym gry. Dokonujemy na nim wyboru kategorii
 
 c) **Rozgrywka**
 
+![rozgrywka2](https://user-images.githubusercontent.com/25456823/49168145-30aa0600-f337-11e8-8959-579c4f2b2095.png)
+![rozgrywka1](https://user-images.githubusercontent.com/25456823/49168126-2425ad80-f337-11e8-945f-4cc7b150b46c.png)
+
 Ekran po lewej stronie  ukazuję przykładowe pytanie podczas rozgrywki. W górnej części ukazana jest informacja o aktualnej rundzie oraz sumie zgromadzonych do tej pory punktów. Poniżej znajduję się wylosowane pytanie a następnie 4 przyciski z wariantami odpowiedzi 
 z których zawsze tylko jedna jest poprawna. Po wybraniu poprawnej odpowiedzi gracz przechodzi do następnej rundy. Natomiast po udzieleniu błędnej odpowiedzi proszony jest o podanie swojej nazwy (ekran po prawej stronie) w celu zapisania wyniku do rankingu. Jeżeli odpowiedź jest prawidłowa przycisk zmienia swój kolor na zielony, jeżeli błędna – na czerwony. 
 
@@ -84,25 +87,36 @@ Baza danych składa się z 4 tabel które są wykorzystywane przez aplikacje do 
 - **ranking** – zawiera wyniki osiągane przez graczy wraz z ich nazwami
 
 **Schemat encji:**
+![encje](https://user-images.githubusercontent.com/25456823/49168099-1839eb80-f337-11e8-9316-1a9d29961e6c.png)
 
 6. **Dokumentacja serwisu restowego**
 
 Serwis restowy zawierający logikę aplikacji oraz odpowiadający za obsługę bazy danych wykonany został w technologii Java oraz jej najpopularniejszych wymienionych wcześniej bibliotekach. Dokumentacja serwisu została wykonana przy użyciu biblioteki „Swagger" która pozwala w łatwy sposób wizualizować oraz korzystać z dostępnego w aplikacji API przy okazji tworząc jego dokumentację.
 
+![swagger](https://user-images.githubusercontent.com/25456823/49167959-d4df7d00-f336-11e8-982e-0b3bca3bfc00.png)
+
 7. **Przykładowe fragmenty kodu aplikacji**
 
 a) **Wyszukiwanie wszystkich pytań z danej kategorii**
+
+![kod1](https://user-images.githubusercontent.com/25456823/49168000-e58ff300-f336-11e8-85b1-afa5b4776e42.png)
 
 Powyższa metoda jest częścią serwisu restowego. Zwraca nam ona wszystkie pytania wraz z odpowiedziami z kategorii o id podanym jako parametr wyjściowy. Pytania te na końcu są mieszane metodą *shuffle* aby zostały wyświetlane w quizie w losowej kolejności.
 
 b) **Zapytanie** **_Get _** **do serwisu restowego**
 
+![kod2](https://user-images.githubusercontent.com/25456823/49168022-f3de0f00-f336-11e8-9454-d151cd146bab.png)
+
 Powyższa metoda wykorzystywana jest to wykonywania zapytań typu *Get* do serwisu restowego naszej aplikacji. Wymaga ona otrzymania w parametrze dokładnego adresu URL do którego ma wysłać nasze zapytanie. W odpowiedzi zwraca zawartość w formacie JSON jeżeli kod odpowiedzi wynosił 200 lub sam kod odpowiedzi http jeżeli był on inny niż oczekiwany kod 200.
 
 c) **Lista najlepszych wyników**
 
+![kod3](https://user-images.githubusercontent.com/25456823/49168044-fd677700-f336-11e8-95dc-246427d9d484.png)
+
 Metoda ta również jest częścią serwisu restowego. Zwraca nam ona najlepsze 20 wyników graczy w kolejności od największego do najmniejszego. Wyniki te są wykorzystane do wyświetlania rankingu w grze.
 
 d) **Adapter layoutu rankingu**
+
+![kod4](https://user-images.githubusercontent.com/25456823/49168061-08220c00-f337-11e8-8544-13a0f4f45e34.png)
 
 Powyższa metoda jest częścią klasy dzięki której tworzymy adapter layoutu. Adapter ten wykorzystany jest w naszej aplikacji do stworzenia rankingu najlepszych wyników w oparciu o fragmenty. W powyższej metodzie przypisane są odpowiednie wartości dla poszczególnych elementów widoku oraz kolor tła w zależności od tego czy element znajduję się na pozycji parzystej czy nieparzystej.
